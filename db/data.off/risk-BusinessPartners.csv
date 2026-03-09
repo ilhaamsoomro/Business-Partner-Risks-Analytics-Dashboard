@@ -1,0 +1,4 @@
+ID;bpId;companyName;country;creditScore;riskLevel;createdAt
+1;BP1001;Tokyo Steel Co;JP;720;LOW;2024-01-01 10:00:00
+2;BP1002;Global Imports;US;480;HIGH;2024-02-10 09:30:00
+3;BP1003;Euro Trade GmbH;DE;650;MEDIUM;2024-03-05 14:15:00

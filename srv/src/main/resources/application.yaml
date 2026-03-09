@@ -1,0 +1,45 @@
+
+---
+spring:
+  config:
+    activate:
+      on-profile: default
+  sql:
+    init:
+      platform: h2
+cds:
+  data-source:
+    auto-config:
+      enabled: false
+  remote:
+    services:
+      API_BUSINESS_PARTNER:
+        destination:
+          name: API_BUSINESS_PARTNER
+        type: odata-v2
+        http:
+          headers:
+            APIKey: "zdpNkqDQh6D5erwoEqwXnMgKl5h14xlq"
+
+      API_SALES_ORDER_SRV:
+        destination:
+          name: API_SALES_ORDER_SRV
+        type: odata-v2
+        http:
+          headers:
+            APIKey: "zdpNkqDQh6D5erwoEqwXnMgKl5h14xlq"
+
+      API_SUPPLIERINVOICE_PROCESS_SRV:
+        destination:
+          name: API_SUPPLIERINVOICE_PROCESS_SRV
+        type: odata-v2
+        http:
+          headers:
+            APIKey: "zdpNkqDQh6D5erwoEqwXnMgKl5h14xlq"
+
+
+logging:
+  level:
+    com.sap.cds: INFO
+    com.sap.cloud.sdk: DEBUG
+    org.apache.http: DEBUG

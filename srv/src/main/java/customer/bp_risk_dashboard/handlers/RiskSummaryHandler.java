@@ -117,6 +117,18 @@ public class RiskSummaryHandler implements EventHandler{
                 avgNetPaymentDays = (double) totalDays / countDays;
             }
 
+            int riskPoints = 0;
+
+            if (openOrderCount > 1) riskPoints += 2;
+            if (salesTotal > 3000000) riskPoints += 1;
+            if (blockedInvoiceCount > 0) riskPoints += 3;
+            if (avgNetPaymentDays > 60) riskPoints += 3;
+
+            int riskScore = Math.min(riskPoints * 10, 100);
+
+            row.put("RiskPoints", riskPoints);
+            row.put("RiskScore", riskScore);
+
             Map<String,Object> row = new LinkedHashMap<>();
             row.put("BusinessPartner", bpId);
             row.put("BusinessPartnerFullName", fullName);
@@ -125,7 +137,7 @@ public class RiskSummaryHandler implements EventHandler{
             row.put("OpenOrderCount", openOrderCount);
             row.put("SalesTotal", salesTotal);
             row.put("BlockedInvoiceCount", blockedInvoiceCount);
-            row.put("AvgNetPaymentDays", avgNetPaymentDays);
+            row.put("AvgNetPymntDays", avgNetPaymentDays);
 
 
             result.add(row);
